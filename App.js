@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import CustomSplashScreen from './src/SplashScreen';
+import SearchPage from './src/SearchPage';
+import RecipeList from './src/RecipeList';
+import RecipeDetail from './src/RecipeDetail';
+import Favorites from './src/Favorites'
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="SplashScreen" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="SplashScreen" component={CustomSplashScreen} />
+        <Stack.Screen name="RecipeList" component={RecipeList} />
+        <Stack.Screen name="Search" component={SearchPage} />
+        <Stack.Screen name="Favorites" component={Favorites} options={{ title: 'Favorites' }} />
+        <Stack.Screen 
+          name="RecipeDetail" 
+          component={RecipeDetail} 
+          options={{ title: 'Recipe Details' }} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
