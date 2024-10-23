@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, FlatList, Text, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
 import axios from 'axios';
 
-const API_KEY = '63c682ff12ab41a287c32e09c186decf'; // Your API Key
-const API_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`;
-const SERVER_URL = 'http://192.168.0.109:3000'; // Your server IP address
+const API_KEY = 'API_KEY'; 
+const API_URL = `API_URL;
+const SERVER_URL = 'SERVER_IP';
 
 const SearchPage = ({ navigation }) => {
   const [searchTerm, setSearchTerm] = useState('');
